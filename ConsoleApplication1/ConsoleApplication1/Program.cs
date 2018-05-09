@@ -12,10 +12,35 @@ namespace ConsoleApplication1
         static void Main(string[] args)
         {
 
+            //Fib(10);
             //recuperacion_listas();
             //recuperacion_diccionario();
             recuperacion_tablaHash();
             Console.ReadLine();
+        }
+
+        public static void Fib(int fin)
+        {
+            int[] arrayFib = new int[fin];
+
+
+            for (int i = 0; i < fin; i++)
+            {
+                if (i < 2)
+                {
+                    arrayFib[i] = i + 1;
+                }
+                else
+                {
+                    arrayFib[i] = arrayFib[i - 1] + arrayFib[i - 2];
+                }
+
+            }
+
+            foreach (var item in arrayFib)
+            {
+                Console.WriteLine(item.ToString());
+            }
         }
 
         public static void recuperacion_listas()
@@ -66,7 +91,7 @@ namespace ConsoleApplication1
 
             foreach (var item in thash)
             {
-                Console.WriteLine($"Par clave valor: {item.ToString()}");
+                Console.WriteLine($"Par clave valor: {item}");
             }
         }
     }
