@@ -17,7 +17,8 @@ namespace ConsoleApplication1
             //recuperacion_listas();
             //recuperacion_diccionario();
             //recuperacion_tablaHash();
-            manejo_ficheros();
+            //manejo_ficheros();
+            manejo_linq();
             Console.ReadLine();
         }
 
@@ -114,6 +115,57 @@ namespace ConsoleApplication1
                 }
                                                 
             }
+        }
+
+        public static void manejo_linq()
+        {
+            //Ejemplo 1
+            List<string> lista = new List<string> { "Whether","the","dreams","brought","on","the","fever","Once","upon","time"};
+
+            //var query1 = from va in lista where va.Length > 1 select va;
+
+            /* Es lo mismo que lo de arriba
+            List<string> lista2 = new List<string>();
+            foreach (var va in lista){
+                if (va.Length < 4)
+                {
+                    lista2.add(va);
+                }
+            }*/
+
+            //var query2 = from n in lista where n.Length > 2 orderby n select n;
+            //var query3 = lista.Where(z => z.Length > 2);
+
+            var listaPersona = new List<Persona>()
+            {
+                new Persona(1, "Juan", "Rota"),
+                new Persona(2, "Jose", "Cadiz"),
+                new Persona(3, "Pedro", "Sevilla")
+            };
+
+            var listaPorLocalidad = listaPersona.Where(x => x.Localidad == "Sevilla");
+            Console.Write(listaPorLocalidad);
+
+            //Ejemplo 2
+            //string[] str = { "Where the dreams", "brought on the fever or the", "fever brought"};
+        }
+
+        public class Persona
+        {
+            public int Id { get; set; }
+
+            public string Name { get; set; }
+
+            public string Localidad { get; set; }
+
+            public Persona(int i, string name, string localidad)
+            {
+                this.Id = i;
+                this.Name = name;
+                this.Localidad = localidad;
+            }
+
+
         }
     }
 }
