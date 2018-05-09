@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -15,7 +16,8 @@ namespace ConsoleApplication1
             //Fib(10);
             //recuperacion_listas();
             //recuperacion_diccionario();
-            recuperacion_tablaHash();
+            //recuperacion_tablaHash();
+            manejo_ficheros();
             Console.ReadLine();
         }
 
@@ -92,6 +94,19 @@ namespace ConsoleApplication1
             foreach (var item in thash)
             {
                 Console.WriteLine($"Par clave valor: {item}");
+            }
+        }
+
+        public static void manejo_ficheros()
+        {
+            //var fichero2 = File.CreateText("fichero2.txt");
+            using (var file2 = new System.IO.StreamWriter("fichero2.txt", true))
+            {
+                file2.WriteLine("line");
+            }
+            using (var file2 = new System.IO.StreamReader("fichero2.txt"))
+            {
+                file2.ReadLine();
             }
         }
     }
