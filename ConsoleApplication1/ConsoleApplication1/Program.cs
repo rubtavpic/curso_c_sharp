@@ -99,14 +99,18 @@ namespace ConsoleApplication1
 
         public static void manejo_ficheros()
         {
+            //Escritura de fichero
             //var fichero2 = File.CreateText("fichero2.txt");
             using (var file2 = new System.IO.StreamWriter("fichero2.txt", true))
             {
                 file2.WriteLine("line");
             }
+            //Lectura de fichero
             using (var file2 = new System.IO.StreamReader("fichero2.txt"))
             {
-                file2.ReadLine();
+                
+                var linea = file2.ReadLine();
+                                
             }
         }
     }
