@@ -108,9 +108,11 @@ namespace ConsoleApplication1
             //Lectura de fichero
             using (var file2 = new System.IO.StreamReader("fichero2.txt"))
             {
-                
-                var linea = file2.ReadLine();
-                                
+                string linea;
+                while ((linea = file2.ReadLine()) != null){
+                    Console.WriteLine(linea);
+                }
+                                                
             }
         }
     }
